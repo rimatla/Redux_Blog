@@ -1,0 +1,111 @@
+https://stephengrider.github.io/JSPlaygrounds/
+- save and later retrieve blog posts
+
+*************
+REACT router
+With react router we no longer making request to a server to get a web page, receiving it back, and displaying to the user.
+INSTEAD react router intercepts changes to the URL, by manually looking at the URL and displaying a different set of components on the screen based on the NEW URL.
+
+*************
+SPA
+The idea behind single page applications is that we're no longer navigating between distinct HTML documents that are being created by some remote web server.
+INSTEAD we're always dealing with a single HTML document, relying upon some JavaScript to change to the set of components that a user sees on the screen.
+User is 'tricked' thinking that they are navigating through different html pages when in fact they are going through different components in one html page.
+
+*************
+BrowserRouter
+Interacts w/ the History Library deciding what to change based on URL.
+
+*************
+Route
+Its propose is to provide config if url = 'foo' show component 'foo'.
+
+*************
+Switch Component
+Takes a collection of different routes, and decides to render the first route that matches the given URL
+
+*************
+Link
+With React Router we don't use anchor tags anymore when it comes to navigation
+
+*************
+Redux Form
+Handles the state of our form
+Validates and submits input forms in some fashion
+https://redux-form.com/7.1.2/
+It also automatically handle from Changes! out of the box!
+It doesn't post/submits data (that's up to us)
+
+*************
+Redux Form 3 States
+-Pristine (input not yet selected), -Touched (input has been touched), -Invalid (input not validated)
+
+*************
+Field Component
+Does't know how to output JSX to the DOM, only knows how to interact w/ Redux Form
+Therefore we add the component={function} property so it can output JSX
+
+*************
+Submit Form to API
+whenever we think about saving data or making API requests of any kind inside a Redux app,
+we always want to be thinking about action creators
+
+*************
+POSTMAN
+- On Postman make sure you select raw and JSON.
+- POST: Add unique key at the end on Endpoint ie: http://reduxblog.herokuapp.com/api/posts?key=alt123
+- GET: add post id to Endpoint http://reduxblog.herokuapp.com/api/posts/167558
+
+***********************************************************************************************************************
+Redux Blog Post API Reference
+ALL requests require a key parameter, eg `reduxblog.herokuapp.com/api/posts?key=123`
+
+Endpoint	Method	Example	Sample Response	Description
+/api/posts	GET	http://reduxblog.herokuapp.com/api/posts
+[
+  { id: 1,
+    title: 'Hi!',
+    categories: 'Computer, Friends',
+    content: 'Post about Friends'
+  },
+  {
+    id: 2,
+    title: 'New Post',
+    categories: 'Candy',
+    content: 'Post about Candy'
+  }
+]
+Fetches the 40 most recent posts in the database. Note this list is occasionally cleaned out.
+
+
+/api/posts	POST	http://reduxblog.herokuapp.com/api/posts
+
+{
+  id: 1,
+  title: 'Hi!',
+  categories: 'Computer, Friends',
+  content: 'Blog post content'
+}
+Creates a new blog post entry. Returns the created blog post with the ID
+
+
+/api/posts/:id	GET	http://reduxblog.herokuapp.com/api/posts/5
+{
+  id: 1,
+  title: 'Hi!',
+  categories: 'Computer, Friends',
+  content: 'Blog post content'
+}
+Fetches a single blog post with the given ID. Includes the blog's content.
+
+
+/api/posts/:id	DELETE	http://reduxblog.herokuapp.com/api/posts/5
+  {
+    id: 1,
+    title: 'Hi!',
+    categories: 'Computer, Friends',
+    content: 'Blog post content'
+  }
+Deletes a single blog post with the given ID. Returns the post
+
+
