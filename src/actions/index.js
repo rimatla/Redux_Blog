@@ -9,7 +9,7 @@ const API_KEY = '?key=tonki87';
 
 /*********************** Action Creators ********************/
 //fetch all
-export function fetchPosts() {
+export function fetchAllPosts() {
     //get data
     const request = axios.get(`${ROOT_URL}/posts/${API_KEY}`);
     return {

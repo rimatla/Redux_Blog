@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {fetchPosts} from '../actions/index';
+import {fetchAllPosts} from '../actions/index';
 import { Link } from 'react-router-dom';
 import _ from 'lodash';
 
@@ -8,7 +8,7 @@ class PostsIndex extends Component {
     //run as soon as component finished loading
     componentDidMount() {
         //call action creator
-        this.props.fetchPosts();
+        this.props.fetchAllPosts();
     }
 
     renderPosts() {
@@ -44,4 +44,4 @@ function mapStateToProps(state) {
 }
 
 //wire redux/react
-export default connect(mapStateToProps, {fetchPosts})(PostsIndex);
+export default connect(mapStateToProps, {fetchAllPosts})(PostsIndex);
